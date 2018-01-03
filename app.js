@@ -18,8 +18,8 @@ var commentRoutes    = require("./routes/comments"),
     
 
 
-
-mongoose.connect(process.env.DATABASEURL, {useMongoClient: true});
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp"
+mongoose.connect(url, {useMongoClient: true});
 // mongoose.connect("mongodb://TcFlux:PoisonIvy1@ds113636.mlab.com:13636/yelp_camp", {useMongoClient: true});
 mongoose.Promise = global.Promise;
 app.use(bodyParser.urlencoded({extended: true}));
